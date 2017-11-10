@@ -1,0 +1,15 @@
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #673AB7,  #BDBDBD, #673AB7,  #FFFFFF,  #14161F
+!                  'background', 'border', 'separator'
+rofi.color-window: #673AB7,      #002b36,  #002b36
+rofi.location: 1
+!rofi.xoffset 
+rofi.width: 1920
+rofi.lines: 10
+rofi.font: MonacoB 22
+rofi.padding: 400
+rofi.separator-style: none
+rofi.opacity: 20
+rofi.fake-transparancy: true
+
+
