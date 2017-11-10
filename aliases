@@ -1,0 +1,14 @@
+alias setb='xbacklight -set'
+alias incb='xbacklight -inc 10'
+alias decb='xbacklight -dec 10'
+alias telegram='/opt/Telegram/Telegram'
+alias gpom='git push origin master'
+alias ricei3='subl ~/.config/i3/config'
+alias lock='sudo ~/i3lock-color/lock.sh'
+alias findall='find / 2>/dev/null | grep '
+alias vup='amixer -D pulse sset Master 10%+'
+alias vdwn='amixer -D pulse sset Master 10%-'
+alias subl=subl -a
+alias scrlock=~/scripts/lock.sh
+alias opend=xdg-open
+alias refresh-wp='feh --randomize --bg-fill ~/Pictures/wallpapers/*'
