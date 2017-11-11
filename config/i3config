@@ -189,7 +189,7 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%-
 bindsym $mod+Shift+l exec ~/scripts/lock.sh
 
 #Running on startup
-exec_always --no-startup-id polybar poly
+exec_always --no-startup-id polybar top
 exec_always --no-startup-id compton
 exec_always --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpapers/*
 # Start i3bar to display a workspace bar (plus the system information i3status
