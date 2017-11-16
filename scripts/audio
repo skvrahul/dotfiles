@@ -4,6 +4,7 @@ import sys
 from Queue import Queue
 from ctypes import POINTER, c_ubyte, c_void_p, c_ulong, cast
 import os
+import math
 # From https://github.com/Valodim/python-pulseaudio
 from pulseaudio.lib_pulseaudio import *
 
@@ -68,7 +69,7 @@ class PeakMonitor(object):
 
         sink_info = sink_info_p.contents
         if dev:
-            print '-'* 60
+            print '-'
             print 'index:', sink_info.index
             print 'name:', sink_info.name
             print 'description:', sink_info.description
@@ -104,7 +105,6 @@ class PeakMonitor(object):
             # it doesn't make sense to return signed peaks.
             self._samples.put(data[i] - 128)
         pa_stream_drop(stream)
-
 def main():
     max = 0
     monitor = PeakMonitor(SINK_NAME, METER_RATE)
@@ -114,8 +114,10 @@ def main():
         
         #print sample
         #sample = sample >> DISPLAY_SCALE
-        single_bar = u''
-        bar = (single_bar* sample)
+        single_bar = '|'
+        MAX_SIZE = 25
+        n = (MAX_SIZE/(1+math.exp(-sample))) - (MAX_SIZE/2)
+        bar = (single_bar*int(n))
         bar+= u''
         bar=u''+bar
         f = open('/home/skvrahul/scripts/vol', 'w')

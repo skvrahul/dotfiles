@@ -61,9 +61,9 @@ modules-left = bspwm
 modules-right = cpu memory
 
 [module/backlight]
-type = internal/backlight
+type = internal/xbacklight
 format = <ramp> <bar>
-card=intel_backlight
+#card=intel_backlight
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
@@ -325,7 +325,7 @@ date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M%%{F-}
 
 [module/levels]
 type=custom/script
-interval=0.2
+interval=0.05
 #make sure scripts/pulseaudio/audio is running
 exec= cat /home/skvrahul/scripts/vol
 label=%output%
