@@ -12,3 +12,4 @@ alias subl=subl -a
 alias scrlock=~/scripts/lock.sh
 alias opend=xdg-open
 alias refresh-wp='feh --randomize --bg-fill ~/Pictures/wallpapers/*'
+alias curtime=timedatectl|grep Local|cut -f2- -d ":"
