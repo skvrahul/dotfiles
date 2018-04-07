@@ -13,3 +13,6 @@ alias scrlock=~/scripts/lock.sh
 alias opend=xdg-open
 alias refresh-wp='feh --randomize --bg-fill ~/Pictures/wallpapers/*'
 alias curtime=timedatectl|grep Local|cut -f2- -d ":"
+alias tcli=/home/skvrahul/Documents/Workspace/telegram-cli/bin/telegram-cli
+alias config_proxy='cd /home/skvrahul/Downloads/ProxyMan-2.5 ; sudo ./main.sh load manas.net; cd -'
+alias unset_proxy='export https_proxy=;export http_proxy=;export HTTP_PROXY=;export HTTPS_PROXY=;'
