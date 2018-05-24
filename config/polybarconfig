@@ -7,9 +7,11 @@ background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
+highlight = #b2ff59
 secondary = #e60053
 alert = #bd2c40
 transparent = #00000000
+
 [bar/top]
 
 width = 100%
@@ -30,7 +32,8 @@ font-1 = MaterialIcons:size=11;0
 font-2 = Termsynu:size=10:antialias=false;-2
 font-3 = FontAwesome:size=11;0
 
-modules-left = pkg i3 cpu memory levels
+modules-left = pkg i3 cpu memory
+modules-center = mpd
 modules-right = volume backlight wireless-network wired-network battery date
 
 [bar/bottom]
@@ -85,7 +88,14 @@ format-padding = 5
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
-
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
@@ -94,23 +104,23 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline =  ${colors.transparent}
 label-focused-padding =2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
@@ -202,31 +212,14 @@ bar-used-empty-font = 6
 bar-used-empty-foreground = #444444
 
 [module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground =
-toggle-off-foreground = #55
-
-bar-progress-width = 45
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
+type = custom/script
+exec = /home/skvrahul/.config/polybar/mpris.sh
+label="%output%"
+format ="%{A1:xdotool key XF86AudioPlay:}<label>%{A}"
+interval = 1 
+tail = true
+label-foreground = ${colors.foreground}
 
 [module/wireless-network]
 type = internal/network
